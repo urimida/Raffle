@@ -73,3 +73,23 @@ app.post('/reset', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+// 새로운 신청 엔드포인트
+app.post('/apply', (req, res) => {
+    const { name } = req.body;
+
+    if (!name) return res.status(400).json({ error: 'Name is required' });
+
+    db.run(`INSERT INTO participants (name) VALUES (?)`, [name], function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: `${name} has successfully applied!`, id: this.lastID });
+    });
+});
+
+
+// 새로운 신청 페이지 서빙
+app.get('/apply', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'apply.html'));
+});
