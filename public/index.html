@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle Draw</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>랜덤 추첨 프로그램</h1>
+    <div>
+        <input type="text" id="nameInput" placeholder="이름 입력">
+        <button onclick="addParticipant()">응모하기</button>
+    </div>
+    <div>
+        <h3>현재 응모자 수: <span id="participantCount">0</span></h3>
+        <button onclick="drawWinner()">랜덤 추첨</button>
+        <h2 id="winnerDisplay"></h2>
+    </div>
+    <button onclick="resetRaffle()">리셋</button>
+
+    <script src="index.js"></script>
+</body>
+</html>
