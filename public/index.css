@@ -1,9 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
+    background-image: url('./src/tablet-background.png');
+    background-size: cover; /* 화면 전체에 배경 이미지 채우기 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    background-position: center; /* 이미지를 중앙에 위치 */
+    margin: 0; /* 기본 여백 제거 */
+    height: 100vh; /* 화면 높이 꽉 채우기 */
 }
 
 h1, h2, h3 {
@@ -35,3 +36,4 @@ button:hover {
     color: #d9534f;
     font-size: 1.5em;
 }
+

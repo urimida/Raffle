@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raffle Draw</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Raffle - Participants</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>랜덤 추첨 프로그램</h1>
-    <div>
-        <input type="text" id="nameInput" placeholder="이름 입력">
-        <button onclick="addParticipant()">응모하기</button>
-    </div>
-    <div>
-        <h3>현재 응모자 수: <span id="participantCount">0</span></h3>
-        <button onclick="drawWinner()">랜덤 추첨</button>
-        <h2 id="winnerDisplay"></h2>
-    </div>
-    <button onclick="resetRaffle()">리셋</button>
+    <h1>Current Participants</h1>
+    <h3>Total Participants: <span id="participantCount">0</span></h3>
+    <button onclick="startDraw()">Start Draw</button>
 
-    <script src="index.js"></script>
+    <script>
+        async function getCount() {
+            const response = await fetch('/count');
+            const data = await response.json();
+            document.getElementById('participantCount').innerText = data.count;
+        }
+
+        function startDraw() {
+            window.location.href = 'draw.html'; // 당첨자 페이지로 이동
+        }
+
+        getCount();
+    </script>
 </body>
 </html>
