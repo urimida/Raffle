@@ -1,16 +1,18 @@
 body {
     background-image: url('./src/tablet-background.png');
-    background-size: cover;
+    background-size: contain;  /* 이미지가 화면에 맞게 비율을 유지하면서 크기 조정 */
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;  /* 이미지가 중앙에 오도록 설정 */
+    background-attachment: fixed; /* 배경 이미지가 스크롤 시 고정되도록 설정 */
     margin: 0;
-    height: 100vh;
+    height: 100vh; /* 화면 전체 높이를 사용 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 
 h1,
 h2,
