@@ -1,9 +1,9 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose(); // sqlite3 패키지 사용
+const sqlite3 = require('sqlite3').verbose(); // sqlite3 사용
 const app = express();
 const port = 3000;
 
-// DB 경로 설정 (배포 시 /tmp 사용, 로컬 개발 시에는 ./DB/raffle.db)
+// Netlify 환경에서 DB 파일 경로 수정 (배포 시에는 /tmp 사용, 로컬 개발 시에는 ./DB/raffle.db)
 const dbPath = process.env.NODE_ENV === 'production' ? '/tmp/raffle.db' : './DB/raffle.db';
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
@@ -21,7 +21,6 @@ db.serialize(() => {
             name TEXT NOT NULL
         )
     `);
-    
 });
 
 // 미들웨어 설정
@@ -72,6 +71,11 @@ app.post('/reset', (req, res) => {
         }
         res.status(200).json({ message: 'Database reset successful' });
     });
+});
+
+// 서버 시작
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });
 
 // Netlify에서 Express를 사용하려면 서버를 함수로 내보내기
