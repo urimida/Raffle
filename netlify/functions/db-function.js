@@ -1,5 +1,6 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
+const cors = require('cors');  // CORS 패키지 불러오기
 const app = express();
 
 // DB 경로 설정 (배포 시에는 /tmp 사용, 로컬에서는 ./DB/raffle.db)
@@ -22,12 +23,13 @@ db.serialize(() => {
     `);
 });
 
-// 미들웨어 설정
+// CORS 미들웨어 설정 (모든 출처에서 오는 요청을 허용)
+app.use(cors());  // CORS 허용을 위한 미들웨어 추가
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 참가자 수 조회
-app.get('/api/count', (req, res) => {  // /api/count로 수정
+app.get('/api/count', (req, res) => {
     db.get('SELECT COUNT(*) AS count FROM participants', (err, row) => {
         if (err) {
             console.error('Error fetching count:', err.message);
@@ -38,7 +40,7 @@ app.get('/api/count', (req, res) => {  // /api/count로 수정
 });
 
 // 새 참가자 추가
-app.post('/api/add', (req, res) => {  // /api/add로 수정
+app.post('/api/add', (req, res) => {
     const { name } = req.body;
     if (!name) {
         return res.status(400).json({ error: 'Name is required' });
@@ -55,7 +57,7 @@ app.post('/api/add', (req, res) => {  // /api/add로 수정
 });
 
 // 랜덤 참가자 추첨
-app.get('/api/draw', (req, res) => {  // /api/draw로 수정
+app.get('/api/draw', (req, res) => {
     db.get('SELECT name FROM participants ORDER BY RANDOM() LIMIT 1', (err, row) => {
         if (err) {
             console.error('Error drawing winner:', err.message);
@@ -66,7 +68,7 @@ app.get('/api/draw', (req, res) => {  // /api/draw로 수정
 });
 
 // 데이터베이스 리셋
-app.post('/api/reset', (req, res) => {  // /api/reset으로 수정
+app.post('/api/reset', (req, res) => {
     db.run('DELETE FROM participants', (err) => {
         if (err) {
             console.error('Error resetting database:', err.message);
