@@ -1,11 +1,8 @@
-const Database = require('better-sqlite3');
-const path = require('path');
+import Database from 'better-sqlite3';
 
-// Netlify 환경에서 DB 파일 경로 수정 (배포 시에는 /tmp, 로컬에서는 ./DB)
-const dbPath = process.env.NODE_ENV === 'production' ? '/tmp/raffle.db' : './DB/raffle.db';  // 배포 시에는 /tmp 사용
-
+// Netlify에서 제공하는 /tmp 디렉토리에서 DB를 사용
+const dbPath = '/tmp/raffle.db';  // Netlify의 /tmp 디렉토리 사용
 const db = new Database(dbPath, { verbose: console.log });
-
 
 // 테이블 생성 (동기식으로 실행)
 db.prepare(`
