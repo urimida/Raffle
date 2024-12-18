@@ -13,23 +13,21 @@ body {
     text-align: center;
 }
 
-
+/* 제목 스타일 */
 .Current {
     color: #9421F6;
-    text-align: center;
     font-family: Pretendard;
     font-size: 4rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 3.75rem;
     display: flex;
     width: 50.6875rem;
-    height: 4.9375rem;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
 }
 
+/* 박스 영역 스타일 */
 .box {
     display: flex;
     flex-direction: column;
@@ -42,25 +40,23 @@ body {
     text-align: center;
 }
 
+/* 당첨자 표시 스타일 */
 .winnerDisplay {
-
     display: flex;
     width: 83.6875rem;
     height: 15rem;
     flex-direction: column;
     justify-content: center;
-    flex-shrink: 0;
+    align-items: center;
     color: #9421F6;
     text-align: center;
     font-family: Pretendard;
     font-size: 7rem;
-    font-style: normal;
     font-weight: 900;
     line-height: 12.5rem;
-    /* 111.111% */
-
 }
 
+/* 버튼 스타일 */
 .resetButton,
 .startDrawButton {
     width: 37.90475rem;
@@ -75,6 +71,7 @@ body {
     flex-shrink: 0;
 }
 
+/* 참가자 수 표시 스타일 */
 .participantCount {
     display: flex;
     width: 83.6875rem;
@@ -82,12 +79,43 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
     color: hsl(272, 92%, 55%);
     text-align: center;
     font-family: Pretendard;
     font-size: 20rem;
-    font-style: normal;
     font-weight: 900;
     line-height: 25rem;
+}
+
+/* 미디어 쿼리: 태블릿 화면에서 버튼과 텍스트 크기 조정 */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;  /* 배경 이미지가 화면에 꽉 맞도록 설정 */
+    }
+
+    .Current {
+        font-size: 2.5rem;  /* 제목 크기 축소 */
+        width: 90%;
+    }
+
+    .box {
+        width: 100%;
+        height: auto;
+    }
+
+    .winnerDisplay {
+        font-size: 5rem;  /* 당첨자 텍스트 크기 축소 */
+        width: 100%;
+        height: auto;
+    }
+
+    .participantCount {
+        font-size: 10rem;  /* 참가자 수 텍스트 크기 축소 */
+    }
+
+    .resetButton,
+    .startDrawButton {
+        width: 90%;  /* 버튼 크기 축소 */
+        height: auto;
+    }
 }
