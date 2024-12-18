@@ -21,6 +21,7 @@ db.serialize(() => {
             name TEXT NOT NULL
         )
     `);
+    
 });
 
 // 미들웨어 설정
