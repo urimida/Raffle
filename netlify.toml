@@ -1,0 +1,8 @@
+[build]
+  functions = "netlify/functions"  # Netlify Functions 폴더 경로 지정
+  publish = "public"               # 정적 파일 경로 설정 (index.html 등)
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/db-function"
+  status = 200

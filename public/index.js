@@ -6,7 +6,7 @@ async function addParticipant() {
         return;
     }
 
-    const response = await fetch('/add', {
+    const response = await fetch('/api/add', {  // 경로를 /api/add로 변경
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name })
@@ -24,14 +24,14 @@ async function addParticipant() {
 
 // 참가자 수 조회
 async function getCount() {
-    const response = await fetch('/count');
+    const response = await fetch('/api/count');  // 경로를 /api/count로 변경
     const data = await response.json();
     document.getElementById('participantCount').innerText = data.count;
 }
 
 // 랜덤 추첨
 async function drawWinner() {
-    const response = await fetch('/draw');
+    const response = await fetch('/api/draw');  // 경로를 /api/draw로 변경
     const data = await response.json();
     document.getElementById('winnerDisplay').innerText = `당첨자: ${data.name}`;
 }
@@ -39,7 +39,7 @@ async function drawWinner() {
 // 리셋
 async function resetRaffle() {
     if (confirm('모든 데이터를 삭제하시겠습니까?')) {
-        const response = await fetch('/reset', { method: 'POST' });
+        const response = await fetch('/api/reset', { method: 'POST' });  // 경로를 /api/reset으로 변경
         if (response.ok) {
             alert('리셋이 완료되었습니다.');
             getCount();
