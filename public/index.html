@@ -1,61 +1,31 @@
-body {
-    background-image: url('./src/tablet-background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;  /* 화면 크기에 맞게 높이 설정 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  /* 수직 가운데 정렬 */
-    align-items: center;      /* 수평 가운데 정렬 */
-    text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #9421F6;
-    width: 90%;  /* 화면에 맞게 크기 조정 */
-    height: auto;  /* 자동으로 높이 조정 */
-    text-align: center;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raffle - Participants</title>
+    <link rel="stylesheet" href="index.css">
+</head>
 
-.Current {
-    color: #9421F6;
-    font-family: Pretendard;
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 3.75rem;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-}
+<body>
+    <div class="box">
+        <div class="Current">Current Participants</div>
+        <div class="participantCount" id="participantCount"></div>
+        <a href="draw.html" class="startDrawButton">
+            <img src="./src/start.png" class="startDrawButtonimg" alt="Start Draw" id="startDrawButton" style="cursor: pointer;">
+        </a>
+    </div>
 
-.participantCount {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: hsl(272, 92%, 55%);
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 27.5rem;
-    font-weight: 900;
-    line-height: 25rem;
-}
+    <script>
+        async function getCount() {
+            const response = await fetch('/api/count');  // 수정된 API 경로
+            const data = await response.json();
+            document.getElementById('participantCount').innerText = data.count;
+        }
 
-@media (max-width: 768px) {  /* 태블릿 화면 크기 이하 */
-    body {
-        height: auto;  /* 모바일 및 태블릿 화면에서 자동 높이 조정 */
-    }
-    .box {
-        width: 90%;  /* 태블릿 화면에서 크기 조정 */
-    }
-}
+        getCount();
+    </script>
+</body>
+
+</html>
