@@ -46,7 +46,7 @@
                     return;
                 }
 
-                const response = await fetch('/.netlify/functions/apply', {  // 수정된 API 경로
+                const response = await fetch('../netlify/functions/apply', {  // 수정된 API 경로
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name })

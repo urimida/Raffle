@@ -19,7 +19,7 @@
 
     <script>
         async function getCount() {
-            const response = await fetch('/.netlify/functions/count');  // 수정된 API 경로
+            const response = await fetch('../netlify/functions/apply');  // 수정된 API 경로
             const data = await response.json();
             document.getElementById('participantCount').innerText = data.count;
         }
