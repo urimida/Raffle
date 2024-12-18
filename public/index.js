@@ -44,16 +44,20 @@ async function drawWinner() {
 // 리셋
 async function resetRaffle() {
     if (confirm('모든 데이터를 삭제하시겠습니까?')) {
-        const response = await fetch('/api/reset', { method: 'POST' });  // 수정된 경로
-        if (response.ok) {
-            alert('리셋이 완료되었습니다.');
-            getCount();
-            document.getElementById('winnerDisplay').innerText = '';
-        } else {
-            alert('리셋에 실패했습니다.');
+        try {
+            const response = await fetch('/api/reset', { method: 'POST' });
+            if (response.ok) {
+                alert('데이터가 성공적으로 리셋되었습니다!');
+                window.location.href = 'index.html'; // 이전 페이지로 리디렉트
+            } else {
+                const error = await response.json();
+                alert(`리셋 실패: ${error.message}`);
+            }
+        } catch (err) {
+            console.error('Error resetting the database:', err);
+            alert('서버와의 연결에 실패했습니다.');
         }
     }
 }
-
 // 초기 참가자 수 조회
 getCount();

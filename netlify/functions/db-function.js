@@ -54,4 +54,14 @@ app.get('/api/draw', (req, res) => {
     });
 });
 
+// 리셋 기능 추가
+app.post('/api/reset', (req, res) => {
+    db.run('DELETE FROM participants', (err) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.status(200).json({ message: 'Database reset successful!' });
+    });
+});
+
 module.exports.handler = serverless(app);
