@@ -10,25 +10,24 @@
 
 <body>
     <div class="box">
-        <div class="Current" >The winner is</div>
+        <div class="Current">The winner is</div>
         <div class="winnerDisplay" id="winnerDisplay"></div>
         <a href="javascript:void(0);" class="startDrawButton" onclick="resetRaffle()">
             <img src="./src/try-again.png" class="startDrawButtonimg" alt="Reset Raffle" id="resetButton"
                 style="cursor: pointer;">
         </a>
     </div>
-    </a>
 
     <script>
         async function drawWinner() {
-            const response = await fetch('/api/draw');
+            const response = await fetch('/.netlify/functions/draw');  // 수정된 API 경로
             const data = await response.json();
             document.getElementById('winnerDisplay').innerText = `${data.name}`;
         }
 
         async function resetRaffle() {
             if (confirm('Reset all participants?')) {
-                const response = await fetch('/api/reset', { method: 'POST' });
+                const response = await fetch('/.netlify/functions/reset', { method: 'POST' });  // 수정된 API 경로
                 if (response.ok) {
                     alert('Raffle reset successful!');
                     window.location.href = 'index.html'; // 현재 참여자 보기 페이지로 리디렉트

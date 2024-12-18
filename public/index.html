@@ -13,13 +13,13 @@
         <div class="Current">Current Participants</div>
         <div class="participantCount" id="participantCount"></div>
         <a href="draw.html" class="startDrawButton">
-            <img src="./src/start.png" class="startDrawButtonimg"alt="Start Draw" id="startDrawButton" style="cursor: pointer;">
+            <img src="./src/start.png" class="startDrawButtonimg" alt="Start Draw" id="startDrawButton" style="cursor: pointer;">
         </a>
     </div>
 
     <script>
         async function getCount() {
-            const response = await fetch('/api/count');
+            const response = await fetch('/.netlify/functions/count');  // 수정된 API 경로
             const data = await response.json();
             document.getElementById('participantCount').innerText = data.count;
         }
@@ -27,4 +27,5 @@
         getCount();
     </script>
 </body>
+
 </html>

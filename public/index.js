@@ -6,7 +6,7 @@ async function addParticipant() {
         return;
     }
 
-    const response = await fetch('/api/add', {  // /api/add로 변경
+    const response = await fetch('/.netlify/functions/add', {  // 수정된 경로
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name })
@@ -24,14 +24,14 @@ async function addParticipant() {
 
 // 참가자 수 조회
 async function getCount() {
-    const response = await fetch('/api/count');  // /api/count로 변경
+    const response = await fetch('/.netlify/functions/count');  // 수정된 경로
     const data = await response.json();
     document.getElementById('participantCount').innerText = data.count;
 }
 
 // 랜덤 추첨
 async function drawWinner() {
-    const response = await fetch('/api/draw');  // /api/draw로 변경
+    const response = await fetch('/.netlify/functions/draw');  // 수정된 경로
     const data = await response.json();
     document.getElementById('winnerDisplay').innerText = `당첨자: ${data.name}`;
 }
@@ -39,7 +39,7 @@ async function drawWinner() {
 // 리셋
 async function resetRaffle() {
     if (confirm('모든 데이터를 삭제하시겠습니까?')) {
-        const response = await fetch('/api/reset', { method: 'POST' });  // /api/reset으로 변경
+        const response = await fetch('/.netlify/functions/reset', { method: 'POST' });  // 수정된 경로
         if (response.ok) {
             alert('리셋이 완료되었습니다.');
             getCount();
