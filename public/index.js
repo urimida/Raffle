@@ -39,7 +39,7 @@ async function drawWinner() {
 // 리셋
 async function resetRaffle() {
     if (confirm('모든 데이터를 삭제하시겠습니까?')) {
-        const response = await fetch('/.netlify/functions/reset', { method: 'POST' });  // 수정된 경로
+        const response = await fetch('/.netlify/functions/db-function', { method: 'POST' });  // 수정된 경로
         if (response.ok) {
             alert('리셋이 완료되었습니다.');
             getCount();
