@@ -90,3 +90,20 @@ exports.handler = async (event, context) => {
         });
     });
 };
+
+
+// 참가자 추가 (apply 경로 처리)
+app.post('/apply', (req, res) => {
+    const { name } = req.body;
+    if (!name) {
+        return res.status(400).json({ error: 'Name is required' });
+    }
+
+    const stmt = db.prepare('INSERT INTO participants (name) VALUES (?)');
+    stmt.run(name, function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.status(200).json({ message: `${name}님이 응모되었습니다!`, id: this.lastID });
+    });
+});
