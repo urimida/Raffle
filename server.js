@@ -57,7 +57,7 @@ app.get('/count', (req, res) => {
 app.get('/draw', (req, res) => {
     db.get(`SELECT name FROM participants ORDER BY RANDOM() LIMIT 1`, (err, row) => {
         if (err) return res.status(500).json({ error: err.message });
-        res.json(row || { name: 'No participants' });
+        res.json(row || { name: 'No participants yet' });
     });
 });
 
