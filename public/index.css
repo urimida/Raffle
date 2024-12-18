@@ -1,15 +1,33 @@
 body {
     background-image: url('./src/tablet-background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: 100% 100%;  /* 배경 이미지가 가로와 세로에 맞게 늘어나도록 설정 */
+    background-repeat: no-repeat;  /* 배경 이미지가 반복되지 않도록 설정 */
+    background-position: top left; /* 배경 이미지의 상단 왼쪽을 화면의 상단 왼쪽에 맞춤 */
+    background-attachment: fixed; /* 배경 이미지가 스크롤 시 고정되도록 설정 */
     margin: 0;
-    height: 100vh;  /* 화면 크기에 맞게 높이 설정 */
+    height: 100vh;  /* 화면 전체 높이를 사용 */
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* 수직 가운데 정렬 */
-    align-items: center;      /* 수평 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
     text-align: center;
+}
+
+
+.Current {
+    color: #9421F6;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.75rem;
+    display: flex;
+    width: 50.6875rem;
+    height: 4.9375rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .box {
@@ -18,44 +36,58 @@ body {
     justify-content: center;
     align-items: center;
     color: #9421F6;
-    width: 90%;  /* 화면에 맞게 크기 조정 */
-    height: auto;  /* 자동으로 높이 조정 */
+    width: 80rem;
+    height: 25rem;
+    flex-shrink: 0;
     text-align: center;
 }
 
-.Current {
-    color: #9421F6;
-    font-family: Pretendard;
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 3.75rem;
+.winnerDisplay {
+
     display: flex;
-    width: 100%;
+    width: 83.6875rem;
+    height: 15rem;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    flex-shrink: 0;
+    color: #9421F6;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 12.5rem;
+    /* 111.111% */
+
+}
+
+.resetButton,
+.startDrawButton {
+    width: 37.90475rem;
+    height: 5.9375rem;
+    flex-shrink: 0;
+}
+
+.startDrawButtonimg,
+.resetButton {
+    width: 100%;
+    height: 100%;
     flex-shrink: 0;
 }
 
 .participantCount {
     display: flex;
-    width: 100%;
-    height: auto;
+    width: 83.6875rem;
+    height: 23rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     color: hsl(272, 92%, 55%);
     text-align: center;
     font-family: Pretendard;
-    font-size: 27.5rem;
+    font-size: 20rem;
+    font-style: normal;
     font-weight: 900;
     line-height: 25rem;
-}
-
-@media (max-width: 768px) {  /* 태블릿 화면 크기 이하 */
-    body {
-        height: auto;  /* 모바일 및 태블릿 화면에서 자동 높이 조정 */
-    }
-    .box {
-        width: 90%;  /* 태블릿 화면에서 크기 조정 */
-    }
 }
