@@ -21,7 +21,7 @@
     <script>
         // 랜덤 추첨을 수행하는 함수
         async function drawWinner() {
-            const response = await fetch('/.netlify/functions/db-function');  // Netlify 함수로 경로 변경
+            const response = await fetch('/api/draw');  // Netlify 함수로 경로 변경
             const data = await response.json();
             document.getElementById('winnerDisplay').innerText = `${data.name}`;
         }
@@ -29,7 +29,7 @@
         // 참가자 목록을 리셋하는 함수
         async function resetRaffle() {
             if (confirm('Reset all participants?')) {
-                const response = await fetch('/.netlify/functions/db-function', { method: 'POST' });  // Netlify 함수로 경로 변경
+                const response = await fetch('/api/reset', { method: 'POST' });  // Netlify 함수로 경로 변경
                 if (response.ok) {
                     alert('Raffle reset successful!');
                     window.location.href = 'index.html';  // 리셋 후 참가자 보기 페이지로 리디렉트
