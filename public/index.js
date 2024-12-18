@@ -6,7 +6,7 @@ async function addParticipant() {
         return;
     }
 
-    const response = await fetch('../netlify/functions/apply', {  // 수정된 경로
+    const response = await fetch('/.netlify/functions/db-function', {  // 수정된 경로
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name })
@@ -24,14 +24,14 @@ async function addParticipant() {
 
 // 참가자 수 조회
 async function getCount() {
-    const response = await fetch('/.netlify/functions/count');  // 수정된 경로
+    const response = await fetch('/.netlify/functions/db-function');  // 수정된 경로
     const data = await response.json();
     document.getElementById('participantCount').innerText = data.count;
 }
 
 // 랜덤 추첨
 async function drawWinner() {
-    const response = await fetch('/.netlify/functions/draw');  // 수정된 경로
+    const response = await fetch('/.netlify/functions/db-function');  // 수정된 경로
     const data = await response.json();
     document.getElementById('winnerDisplay').innerText = `당첨자: ${data.name}`;
 }
