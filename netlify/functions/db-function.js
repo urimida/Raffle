@@ -1,10 +1,11 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose(); // sqlite3 사용
+const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const port = 3000;
 
-// Netlify 환경에서 DB 파일 경로 수정 (배포 시에는 /tmp 사용, 로컬 개발 시에는 ./DB/raffle.db)
-const dbPath = process.env.NODE_ENV === 'production' ? '/tmp/raffle.db' : './DB/raffle.db';
+// Netlify 환경에서 DB 파일 경로 수정 (배포 시에는 /tmp 사용)
+const dbPath = process.env.DB_PATH || '/tmp/raffle.db'; // Netlify 환경 변수 사용
+
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
         console.error('Error opening database:', err.message);
