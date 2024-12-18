@@ -19,7 +19,7 @@
 
     <script>
         async function getCount() {
-            const response = await fetch('/count');
+            const response = await fetch('/api/count');
             const data = await response.json();
             document.getElementById('participantCount').innerText = data.count;
         }

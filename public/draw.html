@@ -21,14 +21,14 @@
 
     <script>
         async function drawWinner() {
-            const response = await fetch('/draw');
+            const response = await fetch('/api/draw');
             const data = await response.json();
             document.getElementById('winnerDisplay').innerText = `${data.name}`;
         }
 
         async function resetRaffle() {
             if (confirm('Reset all participants?')) {
-                const response = await fetch('/reset', { method: 'POST' });
+                const response = await fetch('/api/reset', { method: 'POST' });
                 if (response.ok) {
                     alert('Raffle reset successful!');
                     window.location.href = 'index.html'; // 현재 참여자 보기 페이지로 리디렉트

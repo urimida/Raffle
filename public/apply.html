@@ -59,7 +59,7 @@ If you don’t have the money right now, you can pay after class or tomorrow.
                     return;
                 }
 
-                const response = await fetch('/apply', {
+                const response = await fetch('/api/apply', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name })

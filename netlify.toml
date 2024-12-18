@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/db-function"
+  to = "/.netlify/functions/db-function"  # db-function.js로 리디렉션
   status = 200
