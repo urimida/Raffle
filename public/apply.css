@@ -48,33 +48,6 @@ div {
     margin-bottom: 30rem;
 }
 
-/* 입력 필드 스타일 */
-input[type="text"] {
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    max-width: 20rem;
-    /* 최대 너비 제한 */
-}
-
-/* 버튼 스타일 */
-button {
-    padding: 0.5rem 1rem;
-    background-color: #9421F6;
-    color: white;
-    width: 20.5625rem;
-    height: 3rem;
-    flex-shrink: 0;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-
-    /* 최대 너비 제한 */
-}
 
 
 
@@ -94,23 +67,40 @@ button {
 }
 
 .nameinput {
-    width: 20.5625rem;
-    height: 3.125rem;
-    flex-shrink: 0;
 
+    height: 2.125rem;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    flex-shrink: 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 3rem;
 }
 
 .gobutton {
-    width: 20.5625rem;
+
     height: 3.125rem;
     flex-shrink: 0;
+    padding: 0.5rem 1rem;
+    background-color: #9421F6;
+    color: white;
+    flex-shrink: 0;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
 
 }
 
 
 .story {
     width: 20.0625rem;
-    height: 140.875rem;
+    height: 160.875rem;
     flex-shrink: 0;
     color: #000;
     text-align: center;
@@ -134,9 +124,8 @@ button {
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 700;
-    line-height: 3.75rem;
-    /* 214.286% */
-
+    white-space: pre-wrap;
+    /* 공백과 줄바꿈을 그대로 반영 */
 }
 .account {
     width: 20.25rem;
