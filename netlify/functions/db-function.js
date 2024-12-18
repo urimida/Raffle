@@ -40,8 +40,9 @@ app.get('/api/count', (req, res) => {
 });
 
 // 새 참가자 추가
-app.post('/api/add', (req, res) => {
+app.post('/api/apply', (req, res) => {
     const { name } = req.body;
+
     if (!name) {
         return res.status(400).json({ error: 'Name is required' });
     }
@@ -50,8 +51,9 @@ app.post('/api/add', (req, res) => {
     stmt.run(name, function (err) {
         if (err) {
             console.error('Error inserting participant:', err.message);
-            return res.status(500).json({ error: err.message });
+            return res.status(500).json({ error: 'Internal server error' });
         }
+
         res.status(200).json({ message: `${name} added successfully`, id: this.lastID });
     });
 });

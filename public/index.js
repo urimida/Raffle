@@ -1,27 +1,32 @@
 // 응모자 이름 추가
-async function addParticipant() {
+async function apply() {
     const name = document.getElementById('nameInput').value.trim();
     if (!name) {
-        alert('이름을 입력해주세요.');
+        alert('이름을 입력해주세요!');
         return;
     }
 
-    const response = await fetch('/.netlify/functions/db-function', {  // 수정된 경로
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name })
-    });
+    try {
+        const response = await fetch('/api/apply', {  // 수정된 API 경로
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name })
+        });
 
-    if (response.ok) {
-        alert(`${name}님이 응모되었습니다!`);
-        getCount();
-    } else {
-        alert('응모에 실패했습니다.');
+        if (response.ok) {
+            const result = await response.json();
+            document.getElementById('message').innerText = result.message || '응모에 실패했습니다.';
+            document.getElementById('nameInput').value = '';
+        } else {
+            // 응답이 실패했을 때
+            const errorData = await response.json();
+            alert(errorData.error || '응모에 실패했습니다.');
+        }
+    } catch (error) {
+        console.error('Request failed', error);
+        alert('서버와의 연결에 문제가 발생했습니다.');
     }
-
-    document.getElementById('nameInput').value = '';
 }
-
 // 참가자 수 조회
 async function getCount() {
     const response = await fetch('/api/count');  // 수정된 경로
