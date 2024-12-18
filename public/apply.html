@@ -1,43 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>신청 프로그램</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 2rem; text-align: center; }
-        input { margin: 1rem; padding: 0.5rem; }
-        button { padding: 0.5rem 1rem; cursor: pointer; }
-        h1 { color: #333; }
-    </style>
+    <link rel="stylesheet" href="./src/pretendardvariable.css">
+    <link rel="stylesheet" href="apply.css"> <!-- 수정된 CSS 파일 연결 -->
 </head>
+
 <body>
-    <h1>간단한 신청 프로그램</h1>
-    <p>이름을 입력하고 신청하세요!</p>
-    <div>
-        <input type="text" id="nameInput" placeholder="이름 입력" />
-        <button onclick="apply()">신청하기</button>
+    <div class="container">
+        <div class="logo1"><img src="./src/logo1.png" class="logo1img" alt="Reset Raffle" id="resetButton"
+                style="cursor: pointer;">
+            <div>
+
+                <div class="story">
+
+Hello, and thank you for tagging!
+
+
+I’m Yurim, the manager of Jangmadang.
+
+
+By transferring 200 won to the account provided or paying 200 won in cash, you’ll get a chance to win a Bluetooth speaker.
+
+
+
+
+Would you like to participate?
+
+
+
+
+If you don’t have the money right now, you can pay after class or tomorrow.
+
+
+                </div>
+
+<div class="story2">Account
+<div class="account">Busan Bank 112-2189-8962-08</div>
+    Account Holder: Yurim Song
     </div>
-    <p id="message"></p>
 
-    <script>
-        async function apply() {
-            const name = document.getElementById('nameInput').value.trim();
-            if (!name) {
-                alert('이름을 입력해주세요!');
-                return;
+                <input type="text" class="nameinput" id="nameInput" placeholder="NAME" />
+                <button class="gobutton" onclick="apply()">Go</button>
+            </div>
+            <p id="message"></p>
+
+        </div>
+        <div class="space">
+        </div>
+        <script>
+            async function apply() {
+                const name = document.getElementById('nameInput').value.trim();
+                if (!name) {
+                    alert('이름을 입력해주세요!');
+                    return;
+                }
+
+                const response = await fetch('/apply', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+
+                const result = await response.json();
+                document.getElementById('message').innerText = result.message || '오류가 발생했습니다.';
+                document.getElementById('nameInput').value = '';
             }
-
-            const response = await fetch('/apply', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name })
-            });
-
-            const result = await response.json();
-            document.getElementById('message').innerText = result.message || '오류가 발생했습니다.';
-            document.getElementById('nameInput').value = '';
-        }
-    </script>
+        </script>
 </body>
+
 </html>

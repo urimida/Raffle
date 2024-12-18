@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raffle - Participants</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <h1>Current Participants</h1>
-    <h3>Total Participants: <span id="participantCount">0</span></h3>
-    <button onclick="startDraw()">Start Draw</button>
+    <div class="box">
+        <div class="Current">Current Participants</div>
+        <div class="participantCount">0</div>
+        <a href="draw.html" class="startDrawButton">
+            <img src="./src/start.png" class="startDrawButtonimg"alt="Start Draw" id="startDrawButton" style="cursor: pointer;">
+        </a>
+    </div>
 
     <script>
         async function getCount() {
@@ -18,11 +24,8 @@
             document.getElementById('participantCount').innerText = data.count;
         }
 
-        function startDraw() {
-            window.location.href = 'draw.html'; // 당첨자 페이지로 이동
-        }
-
         getCount();
     </script>
 </body>
+
 </html>

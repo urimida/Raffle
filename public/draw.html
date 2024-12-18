@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raffle - Draw Winner</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <h1>Winner Announcement</h1>
-    <h2 id="winnerDisplay">Drawing...</h2>
-    <button onclick="resetRaffle()">Reset</button>
+    <div class="box">
+        <div class="Current" >The winner is</div>
+        <div class="winnerDisplay" id="winnerDisplay"></div>
+        <a href="javascript:void(0);" class="startDrawButton" onclick="resetRaffle()">
+            <img src="./src/try-again.png" class="startDrawButtonimg" alt="Reset Raffle" id="resetButton"
+                style="cursor: pointer;">
+        </a>
+    </div>
+    </a>
 
     <script>
         async function drawWinner() {
             const response = await fetch('/draw');
             const data = await response.json();
-            document.getElementById('winnerDisplay').innerText = `Winner: ${data.name}`;
+            document.getElementById('winnerDisplay').innerText = `${data.name}`;
         }
 
         async function resetRaffle() {
@@ -33,4 +41,5 @@
         drawWinner();
     </script>
 </body>
+
 </html>

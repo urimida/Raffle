@@ -1,39 +1,97 @@
 body {
     background-image: url('./src/tablet-background.png');
-    background-size: cover; /* 화면 전체에 배경 이미지 채우기 */
-    background-repeat: no-repeat; /* 이미지 반복 방지 */
-    background-position: center; /* 이미지를 중앙에 위치 */
-    margin: 0; /* 기본 여백 제거 */
-    height: 100vh; /* 화면 높이 꽉 채우기 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-h1, h2, h3 {
-    color: #333;
+h1,
+h2,
+h3 {
+    color: #9421F6;
 }
 
-input {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.Current {
+    color: #9421F6;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3.75rem;
+    display: flex;
+    width: 60.6875rem;
+    height: 4.9375rem;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #9421F6;
+    width: 90.6875rem;
+    height: 30rem;
+    flex-shrink: 0;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #218838;
+.winnerDisplay {
+
+    display: flex;
+    width: 83.6875rem;
+    height: 20rem;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #9421F6;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 12.5rem;
+    /* 111.111% */
+
 }
 
-#winnerDisplay {
-    margin-top: 20px;
-    color: #d9534f;
-    font-size: 1.5em;
+.resetButton,
+.startDrawButton {
+    width: 37.90475rem;
+    height: 5.9375rem;
+    flex-shrink: 0;
 }
 
+.startDrawButtonimg,
+.resetButton {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.participantCount {
+    display: flex;
+    width: 83.6875rem;
+    height: 28.75rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: hsl(272, 92%, 55%);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 27.5rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 25rem;
+}
