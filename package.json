@@ -1,11 +1,11 @@
 {
   "name": "raffle-tab",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node index.js"
+    "start": "babel-node server.js"
   },
   "author": "",
   "license": "ISC",

@@ -76,9 +76,7 @@ button {
     /* 최대 너비 제한 */
 }
 
-button:hover {
-    background-color: #3f4a94;
-}
+
 
 .logo1 {
     width: 14.9375rem;
