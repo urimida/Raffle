@@ -13,11 +13,28 @@
         <div class="Current">Current Participants</div>
         <div class="participantCount" id="participantCount"></div>
         <a href="draw.html" class="startDrawButton">
-            <img src="./src/start.png" class="startDrawButtonimg" alt="Start Draw" id="startDrawButton" style="cursor: pointer;">
+            <img src="./src/start.png" class="startDrawButtonimg" alt="Start Draw" id="startDrawButton"
+                style="cursor: pointer;">
         </a>
     </div>
 
     <script>
+        function openFullscreen() {
+            let elem = document.documentElement; // 전체 페이지
+
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
+
+        // 페이지 로드 후 자동으로 풀스크린 모드 시작
+        openFullscreen();
         async function getCount() {
             const response = await fetch('/api/count');  // 수정된 API 경로
             const data = await response.json();
