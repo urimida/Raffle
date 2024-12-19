@@ -109,24 +109,23 @@ body {
     }
 
     .box {
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 
     .winnerDisplay {
         font-size: 5rem;  /* 당첨자 텍스트 크기 축소 */
-        width: 100%;
+        width: 80%;
         height: auto;
     }
 
     .participantCount {
-        font-size: 10rem;  /* 참가자 수 텍스트 크기 축소 */
+        font-size: 8rem;  /* 참가자 수 텍스트 크기 축소 */
     }
 
     .resetButton,
     .startDrawButton {
-        width: 90%;  /*
-        
+        width: 70%;  /*
         버튼 크기 축소 */
         height: auto;
     }
