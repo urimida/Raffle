@@ -27,7 +27,7 @@ body {
 .Current {
     color: #9421F6;
     font-family: Pretendard;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 3.75rem;
     display: flex;
@@ -45,7 +45,7 @@ body {
     align-items: center;
     color: #9421F6;
     width: 80rem;
-    height: 25rem;
+    height: 20rem;
     flex-shrink: 0;
     text-align: center;
 }
@@ -54,7 +54,7 @@ body {
 .winnerDisplay {
     display: flex;
     width: 83.6875rem;
-    height: 15rem;
+    height: 12rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -69,8 +69,8 @@ body {
 /* 버튼 스타일 */
 .resetButton,
 .startDrawButton {
-    width: 37.90475rem;
-    height: 5.9375rem;
+    width: 31.90475rem;
+    height: 4.9375rem;
     flex-shrink: 0;
 }
 
@@ -85,14 +85,14 @@ body {
 .participantCount {
     display: flex;
     width: 83.6875rem;
-    height: 23rem;
+    height: 20rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: hsl(272, 92%, 55%);
     text-align: center;
     font-family: Pretendard;
-    font-size: 20rem;
+    font-size: 15rem;
     font-weight: 900;
     line-height: 25rem;
 }
