@@ -12,6 +12,22 @@ body {
     align-items: center;  /* 가로 중앙 정렬 */
     font-family: 'Pretendard Variable', sans-serif;
     text-align: center;
+    box-sizing: border-box;  /* 요소의 크기를 패딩과 보더 포함하도록 설정 */
+}
+
+/* 박스 영역 스타일 */
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #9421F6;
+    width: 80rem;
+    height: 25rem;
+    flex-shrink: 0;
+    text-align: center;
+    box-sizing: border-box;  /* 박스 크기에 패딩, 보더 포함 */
+    overflow: hidden;  /* 요소가 부모 박스를 넘지 않도록 */
 }
 
 /* 제목 스타일 */
@@ -26,19 +42,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-}
-
-/* 박스 영역 스타일 */
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #9421F6;
-    width: 80rem;
-    height: 25rem;
-    flex-shrink: 0;
-    text-align: center;
 }
 
 /* 당첨자 표시 스타일 */
