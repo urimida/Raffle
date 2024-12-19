@@ -85,14 +85,14 @@ body {
 .participantCount {
     display: flex;
     width: 83.6875rem;
-    height: 20rem;
+    height: 15rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: hsl(272, 92%, 55%);
     text-align: center;
     font-family: Pretendard;
-    font-size: 15rem;
+    font-size: 12rem;
     font-weight: 900;
     line-height: 25rem;
 }
