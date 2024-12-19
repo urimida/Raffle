@@ -8,8 +8,9 @@ body {
     height: 100vh;  /* 화면 전체 높이를 사용 */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;  /* 세로 중앙 정렬 */
+    align-items: center;  /* 가로 중앙 정렬 */
+    font-family: 'Pretendard Variable', sans-serif;
     text-align: center;
 }
 

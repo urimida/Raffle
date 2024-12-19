@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: swap;
+	src: url('./woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
 body {
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,6 +17,7 @@ body {
     align-items: flex-start;
     /* 세로는 시작점에 맞게 */
     text-align: center;
+    font-family: 'Pretendard Variable', sans-serif;
 }
 
 /* 부모 div */
